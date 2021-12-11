@@ -41,7 +41,6 @@ class Student:
         # elif self.median_grades() == other.median_grades():
         #     return (f'{self.name} и {other.name} имеют одинаковый средней балл {self.median_grades()} ')
 
-
     def __str__(self):
         return (f'''Имя: {self.name}
 Фамилия: {self.surname}
@@ -75,7 +74,7 @@ class Lecturer(Mentor):
             return 'Оценки не найдены'
 
     def __str__(self):
-        return (f"Имя: {self.name}\nФамилия: {self.surname}\nСредняя оценка за лекции: {self.median_grades()}")
+        return f"Имя: {self.name}\nФамилия: {self.surname}\nСредняя оценка за лекции: {self.median_grades()}"
 
     def __lt__(self, other):
         return self.median_grades() < other.median_grades()
@@ -92,7 +91,8 @@ class Reviewer(Mentor):
             return 'Ошибка!'
 
     def __str__(self):
-        return (f"Имя: {self.name}\nФамилия: {self.surname}")
+        return f"Имя: {self.name}\nФамилия: {self.surname}"
+
 
 students_list = Student.instances
 lecturer_list = Lecturer.instances
@@ -178,7 +178,7 @@ print(cool_lector)
 print(cool_reviewer)
 print(best_student)
 print(best_student_2 < best_student)
-print(cool_lector_2 < cool_lector)
+print(cool_lector_2 > cool_lector)
 
 print('_____________________________________')
 
@@ -193,8 +193,10 @@ def all_grade_student(course):
     mid = amount/length
     print(f'Средний балл всех студентов по программе {course}: {mid}')
 
+
 all_grade_student('Python')
 all_grade_student('Git')
+
 
 def all_grade_lecturer(course):
     length = 0
@@ -205,6 +207,7 @@ def all_grade_lecturer(course):
             amount += k
     mid = amount/length
     print(f'Средний балл всех лекторов по программе {course}: {mid}')
+
 
 all_grade_lecturer('Python')
 all_grade_lecturer('Git')
